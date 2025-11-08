@@ -26,6 +26,17 @@ jobs:
     - name: Install dependencies
       run: npm install
 
+    - name: Download Binaries
+      run: |
+        mkdir -p src-tauri/resources/bin/x86_64
+        curl -L https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp_macos -o src-tauri/resources/bin/x86_64/yt-dlp
+        curl -L https://evermeet.cx/ffmpeg/ffmpeg-113323-g5305b644a2.zip -o ffmpeg.zip
+        unzip ffmpeg.zip
+        mv ffmpeg src-tauri/resources/bin/x86_64/ffmpeg
+        chmod +x src-tauri/resources/bin/x86_64/yt-dlp
+        chmod +x src-tauri/resources/bin/x86_64/ffmpeg
+        touch src-tauri/resources/bin/CHECKSUMS.txt
+
     - name: Run tests
       run: |
         cd src-tauri
