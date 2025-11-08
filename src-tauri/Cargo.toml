@@ -1,0 +1,38 @@
+[package]
+name = "vortex-downloader"
+version = "0.1.0"
+description = "A YouTube downloader with GUI for macOS"
+authors = ["you"]
+license = ""
+repository = ""
+edition = "2021"
+exclude = ["resources/"]
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[build-dependencies]
+tauri-build = { version = "1.5", features = [] }
+
+[dependencies]
+tauri = { version = "1.5", features = ["dialog-open", "fs-create-dir", "fs-exists", "fs-read-dir", "fs-read-file", "fs-remove-dir", "fs-remove-file", "fs-write-file", "shell-open"] }
+tauri-plugin-store = { git = "https://github.com/tauri-apps/plugins-workspace", branch = "v1" }
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+tokio = { version = "1", features = ["full"] }
+tokio-util = "0.7"
+async-trait = "0.1"
+thiserror = "1.0"
+regex = "1.10"
+dirs = "5.0"
+nix = { version = "0.27", features = ["fs"] }
+chrono = { version = "0.4", features = ["serde"] }
+sha2 = "0.10"
+reqwest = { version = "0.11", features = ["json"] }
+
+[dev-dependencies]
+tempfile = "3.8"
+
+[features]
+# This feature is used for production builds or when `devPath` points to the filesystem
+# DO NOT REMOVE!!
+custom-protocol = ["tauri/custom-protocol"]

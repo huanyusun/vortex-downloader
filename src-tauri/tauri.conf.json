@@ -1,0 +1,84 @@
+{
+  "build": {
+    "beforeDevCommand": "npm run dev",
+    "beforeBuildCommand": "npm run build",
+    "devPath": "http://localhost:1420",
+    "distDir": "../dist",
+    "withGlobalTauri": false
+  },
+  "package": {
+    "productName": "Vortex Downloader",
+    "version": "0.1.0"
+  },
+  "tauri": {
+    "allowlist": {
+      "all": false,
+      "shell": {
+        "all": false,
+        "open": true
+      },
+      "dialog": {
+        "all": false,
+        "open": true
+      },
+      "fs": {
+        "all": false,
+        "readFile": true,
+        "writeFile": true,
+        "readDir": true,
+        "createDir": true,
+        "removeDir": true,
+        "removeFile": true,
+        "exists": true,
+        "scope": ["$APPDATA/*", "$DOWNLOAD/*", "$HOME/Downloads/*"]
+      }
+    },
+    "bundle": {
+      "active": true,
+      "targets": "all",
+      "identifier": "com.vortex-downloader.app",
+      "icon": [
+        "icons/32x32.png",
+        "icons/128x128.png",
+        "icons/128x128@2x.png",
+        "icons/icon.icns",
+        "icons/icon.ico"
+      ],
+      "resources": [
+        "resources/bin/x86_64/*",
+        "resources/bin/aarch64/*",
+        "resources/bin/CHECKSUMS.txt"
+      ],
+      "category": "Utility",
+      "copyright": "Copyright © 2024. All rights reserved.",
+      "shortDescription": "Download YouTube videos with ease",
+      "longDescription": "A modern, user-friendly application for downloading YouTube videos, playlists, and channels. Built with Tauri and React for optimal performance.",
+      "macOS": {
+        "minimumSystemVersion": "10.15",
+        "entitlements": null,
+        "exceptionDomain": "",
+        "frameworks": [],
+        "providerShortName": null,
+        "signingIdentity": null
+      }
+    },
+    "security": {
+      "csp": null
+    },
+    "windows": [
+      {
+        "fullscreen": false,
+        "resizable": true,
+        "title": "Vortex Downloader",
+        "width": 1200,
+        "height": 800,
+        "minWidth": 800,
+        "minHeight": 600,
+        "center": true,
+        "decorations": true,
+        "alwaysOnTop": false,
+        "skipTaskbar": false
+      }
+    ]
+  }
+}

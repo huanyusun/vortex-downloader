@@ -1,0 +1,10 @@
+# Ignore binary executables to prevent rebuild loops
+resources/bin/**/*
+resources/bin/x86_64/*
+resources/bin/aarch64/*
+
+# Ignore test files
+tests/**/*
+
+# Ignore build artifacts
+target/**/*
